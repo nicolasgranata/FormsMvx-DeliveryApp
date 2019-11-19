@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage  x:TypeArguments="viewModels:HomeViewModel"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+             xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+             xmlns:viewModels="clr-namespace:DeliveryApp.Core.ViewModels;assembly=DeliveryApp.Core"
+             x:Class="DeliveryApp.Forms.Views.HomePage"
+             xmlns:pages="clr-namespace:DeliveryApp.Forms.Views"
+             xmlns:PanCake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             Title="Home">
+    <views:MvxContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Never" 
+                BackgroundColor="WhiteSmoke">
+            <Grid RowSpacing="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <PanCake:PancakeView Grid.Row="0" CornerRadius="20"
+                                     Margin="5,5,5,0"
+                                     BackgroundColor="White">
+                    <Grid Padding="10,10" ColumnSpacing="30">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+
+                        <Button Grid.Row="0" Grid.Column="0" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Supermarkets" 
+                            TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
+
+                        <Button Grid.Row="0" Grid.Column="1" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Restaurants"
+                            TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
+
+                        <Grid Grid.Row="1" Padding="10,5" ColumnSpacing="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60" />
+                            </Grid.RowDefinitions>
+
+                            <Button Grid.Row="0" Grid.Column="0" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Supermarkets" 
+                            TextColor="Black" FontSize="Medium" />
+
+                            <Button Grid.Row="0" Grid.Column="1" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Restaurants"
+                            TextColor="Black" FontSize="Medium" />
+
+                            <Button Grid.Row="0" Grid.Column="2" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Supermarkets" 
+                            TextColor="Black" FontSize="Medium" />
+
+                            <Button Grid.Row="0" Grid.Column="3" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Restaurants"
+                            TextColor="Black" FontSize="Medium" />
+                        </Grid>
+                    </Grid>
+                </PanCake:PancakeView>
+
+              
+                <PanCake:PancakeView Grid.Row="1" CornerRadius="20"
+                                     Margin="5,5,5,0" Padding="10"
+                                     BackgroundColor="White">
+                    <StackLayout>
+                        <Label Text="Sugerencias para vos" 
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               FontSize="Large"/>
+                        <CollectionView mvx:Bi.nd="ItemsSource MySuggestions"
+                                HeightRequest="200">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Horizontal" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout WidthRequest="240" Padding="10">
+                                        <Frame CornerRadius="10" 
+                                                   Padding="0"
+                                                   IsClippedToBounds="True"
+                                                   HeightRequest="100">
+                                            <Image mvx:Bi.nd="Source Image"
+                                                   HorizontalOptions="Fill"
+                                                   VerticalOptions="FillAndExpand" />
+                                        </Frame>
+                                        <Label mvx:Bi.nd="Text Title" 
+                                               FontSize="Medium" 
+                                               FontAttributes="Bold"
+                                               TextColor="Black"
+                                               HorizontalTextAlignment="Start"/>
+                                        <Label mvx:Bi.nd="Text Price" 
+                                               FontSize="Medium" 
+                                               TextColor="Black"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </PanCake:PancakeView>
+
+                <PanCake:PancakeView Grid.Row="2" CornerRadius="20"  
+                                     Margin="5,5,5,0"
+                                     BackgroundColor="White">
+                    <Grid Padding="10,10" ColumnSpacing="30">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+
+                        <Button Grid.Row="0" Grid.Column="0" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Supermarkets" 
+                            TextColor="Black" FontSize="Medium" />
+
+                        <Button Grid.Row="0" Grid.Column="1" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Restaurants"
+                            TextColor="Black" FontSize="Medium" />
+
+                        <Grid Grid.Row="1" Padding="10,5" ColumnSpacing="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60" />
+                                <RowDefinition Height="60" />
+                            </Grid.RowDefinitions>
+
+                            <Button Grid.Row="0" Grid.Column="0" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Supermarkets" 
+                            TextColor="Black" FontSize="Medium" />
+
+                            <Button Grid.Row="0" Grid.Column="1" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Restaurants"
+                            TextColor="Black" FontSize="Medium" />
+
+                            <Button Grid.Row="0" Grid.Column="2" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Supermarkets" 
+                            TextColor="Black" FontSize="Medium" />
+
+                            <Button Grid.Row="0" Grid.Column="3" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Restaurants"
+                            TextColor="Black" FontSize="Medium" />
+
+                            <Button Grid.Row="1" Grid.Column="0" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Supermarkets" 
+                            TextColor="Black" FontSize="Medium" />
+
+                            <Button Grid.Row="1" Grid.Column="1" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Restaurants"
+                            TextColor="Black" FontSize="Medium" />
+
+                            <Button Grid.Row="1" Grid.Column="2" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Supermarkets" 
+                            TextColor="Black" FontSize="Medium" />
+
+                            <Button Grid.Row="1" Grid.Column="3" CornerRadius ="30" 
+                            BackgroundColor="#ebedf0" Text="Restaurants"
+                            TextColor="Black" FontSize="Medium" />
+                        </Grid>
+                    </Grid>
+                </PanCake:PancakeView>
+            </Grid>
+        </ScrollView>
+    </views:MvxContentPage.Content>
+</views:MvxContentPage>
