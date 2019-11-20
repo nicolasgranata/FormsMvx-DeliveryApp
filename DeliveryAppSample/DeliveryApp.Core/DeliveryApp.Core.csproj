@@ -8,8 +8,4 @@
     <PackageReference Include="MvvmCross" Version="6.4.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

@@ -81,7 +81,7 @@
                                TextColor="Black"
                                FontAttributes="Bold"
                                FontSize="Large"/>
-                        <CollectionView mvx:Bi.nd="ItemsSource MySuggestions"
+                        <CollectionView mvx:Bi.nd="ItemsSource Suggestions"
                                 HeightRequest="200">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Horizontal" />
@@ -94,8 +94,7 @@
                                                    IsClippedToBounds="True"
                                                    HeightRequest="100">
                                             <Image mvx:Bi.nd="Source Image"
-                                                   HorizontalOptions="Fill"
-                                                   VerticalOptions="FillAndExpand" />
+                                                   Aspect="AspectFill"/>
                                         </Frame>
                                         <Label mvx:Bi.nd="Text Title" 
                                                FontSize="Medium" 

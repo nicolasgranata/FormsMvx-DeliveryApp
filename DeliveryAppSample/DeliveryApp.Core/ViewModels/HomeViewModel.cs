@@ -1,20 +1,48 @@
 ﻿using DeliveryApp.Core.Models;
+using DeliveryApp.Core.Services.Interfaces;
 using MvvmCross.ViewModels;
+using System.Threading.Tasks;
 
 namespace DeliveryApp.Core.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
-        public HomeViewModel()
+        private readonly ISuggestionService _suggestionService;
+        public HomeViewModel(ISuggestionService suggestionService)
         {
-            MySuggestions = new MvxObservableCollection<Suggestion>();
-            MySuggestions.Add(new Suggestion { Image="burguer.png", Title = "Hamburguesa con queso y papas", Price = "$200" });
-            MySuggestions.Add(new Suggestion { Image = "sushi.png", Title = "Sushi Take away", Price = "$200" });
-            MySuggestions.Add(new Suggestion { Image = "pizza.png", Title = "Pizza grande", Price = "$200" });
-            MySuggestions.Add(new Suggestion { Image = "ice_cream.png", Title = "Helado por kilo", Price = "$200" });
-            MySuggestions.Add(new Suggestion { Image = "vegetables.png", Title = "Esto es un titulo 5", Price = "$200" });
+            _suggestionService = suggestionService;
+
+            Suggestions = new MvxObservableCollection<Suggestion>();
         }
 
-        public MvxObservableCollection<Suggestion> MySuggestions { get; set; }
+        public MvxNotifyTask LoadPlanetsTask { get; private set; }
+
+        public override Task Initialize()
+        {
+            LoadPlanetsTask = MvxNotifyTask.Create(LoadSuggestions);
+
+            return Task.FromResult(0);
+        }
+
+        private MvxObservableCollection<Suggestion> _suggestions;
+        public MvxObservableCollection<Suggestion> Suggestions
+        {
+            get
+            {
+                return _suggestions;
+            }
+            set
+            {
+                _suggestions = value;
+                RaisePropertyChanged(() => Suggestions);
+            }
+        }
+
+        private async Task LoadSuggestions()
+        {
+            var result = await _suggestionService.GetSuggestions();
+
+            Suggestions.AddRange(result);
+        }
     }
 }
