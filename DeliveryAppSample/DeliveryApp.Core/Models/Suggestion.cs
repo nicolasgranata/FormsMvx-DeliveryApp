@@ -9,5 +9,6 @@ namespace DeliveryApp.Core.Models
         public string Image { get; set; }
         public string Title { get; set; }
         public string Price { get; set; }
+        public string Restaurant { get; set; }
     }
 }

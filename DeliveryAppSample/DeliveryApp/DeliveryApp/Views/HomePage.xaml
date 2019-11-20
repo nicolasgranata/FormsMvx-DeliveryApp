@@ -12,6 +12,9 @@
              xmlns:pages="clr-namespace:DeliveryApp.Forms.Views"
              xmlns:PanCake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              Title="Home">
+    <views:MvxContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="toolbar_icon.png" />
+    </views:MvxContentPage.ToolbarItems>
     <views:MvxContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never" 
                 BackgroundColor="WhiteSmoke">
@@ -23,7 +26,7 @@
                 </Grid.RowDefinitions>
 
                 <PanCake:PancakeView Grid.Row="0" CornerRadius="20"
-                                     Margin="5,5,5,0"
+                                     Margin="5,10,5,0"
                                      BackgroundColor="White">
                     <Grid Padding="10,10" ColumnSpacing="30">
                         <Grid.ColumnDefinitions>
@@ -35,44 +38,53 @@
                         </Grid.RowDefinitions>
 
                         <Button Grid.Row="0" Grid.Column="0" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Supermarkets" 
-                            TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
+                            BackgroundColor="#99d066" Text="Supermercados" 
+                            TextColor="WhiteSmoke" FontSize="Medium" FontAttributes="Bold" />
 
                         <Button Grid.Row="0" Grid.Column="1" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Restaurants"
-                            TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
+                            BackgroundColor="#ff8a50" Text="Restaurantes"
+                            TextColor="WhiteSmoke" FontSize="Medium" FontAttributes="Bold" />
 
                         <Grid Grid.Row="1" Padding="10,5" ColumnSpacing="40">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="62"/>
+                                <ColumnDefinition Width="62"/>
+                                <ColumnDefinition Width="62"/>
+                                <ColumnDefinition Width="62"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="60" />
                             </Grid.RowDefinitions>
 
                             <Button Grid.Row="0" Grid.Column="0" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Supermarkets" 
-                            TextColor="Black" FontSize="Medium" />
+                            BackgroundColor="#ebedf0" ImageSource="drink_icon.png" />
+                            <Label Grid.Row="1" Grid.Column="0" Text="Bebidas"
+                                   FontSize="Small" TextColor="Black"
+                                   FontAttributes="Bold" HorizontalTextAlignment="Center"/>
 
                             <Button Grid.Row="0" Grid.Column="1" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Restaurants"
-                            TextColor="Black" FontSize="Medium" />
+                            BackgroundColor="#ebedf0" ImageSource="pets_icon.png" />
+                            <Label Grid.Row="1" Grid.Column="1" Text="Mascotas"
+                                   FontSize="Small" TextColor="Black"
+                                   FontAttributes="Bold" HorizontalTextAlignment="Center"/>
 
                             <Button Grid.Row="0" Grid.Column="2" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Supermarkets" 
-                            TextColor="Black" FontSize="Medium" />
+                            BackgroundColor="#ebedf0" ImageSource="candy_icon.png"/>
+                            <Label Grid.Row="1" Grid.Column="2" Text="Kiosco"
+                                   FontSize="Small" TextColor="Black"
+                                   FontAttributes="Bold" HorizontalTextAlignment="Center"/>
 
                             <Button Grid.Row="0" Grid.Column="3" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Restaurants"
-                            TextColor="Black" FontSize="Medium" />
+                            BackgroundColor="#ebedf0" ImageSource="pharmacy_icon.png"/>
+                            <Label Grid.Row="1" Grid.Column="3" Text="Farmacia"
+                                   FontSize="Small" TextColor="Black"
+                                   FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                            
                         </Grid>
                     </Grid>
                 </PanCake:PancakeView>
 
-              
+                <!--Suggestions Card-->
                 <PanCake:PancakeView Grid.Row="1" CornerRadius="20"
                                      Margin="5,5,5,0" Padding="10"
                                      BackgroundColor="White">
@@ -82,7 +94,7 @@
                                FontAttributes="Bold"
                                FontSize="Large"/>
                         <CollectionView mvx:Bi.nd="ItemsSource Suggestions"
-                                HeightRequest="200">
+                                HeightRequest="210">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Horizontal" />
                             </CollectionView.ItemsLayout>
@@ -96,11 +108,15 @@
                                             <Image mvx:Bi.nd="Source Image"
                                                    Aspect="AspectFill"/>
                                         </Frame>
-                                        <Label mvx:Bi.nd="Text Title" 
+                                        <StackLayout Spacing="0">
+                                            <Label mvx:Bi.nd="Text Restaurant" 
+                                               FontSize="Small" 
+                                               TextColor="Gray"/>
+                                            <Label mvx:Bi.nd="Text Title" 
                                                FontSize="Medium" 
                                                FontAttributes="Bold"
-                                               TextColor="Black"
-                                               HorizontalTextAlignment="Start"/>
+                                               TextColor="Black" />
+                                        </StackLayout>
                                         <Label mvx:Bi.nd="Text Price" 
                                                FontSize="Medium" 
                                                TextColor="Black"/>
