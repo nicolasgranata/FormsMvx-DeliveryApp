@@ -12,9 +12,22 @@
              xmlns:pages="clr-namespace:DeliveryApp.Forms.Views"
              xmlns:PanCake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              Title="Home">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ShowDeliveryAddressCommand}"/>
+            </StackLayout.GestureRecognizers>
+            <Label Text="Calle Falsa 123" FontSize="Medium" 
+                  FontAttributes="Bold" />
+           <Image Source="arrow_down_icon.png" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+
     <views:MvxContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="toolbar_icon.png" />
     </views:MvxContentPage.ToolbarItems>
+    
     <views:MvxContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never" 
                 BackgroundColor="WhiteSmoke">

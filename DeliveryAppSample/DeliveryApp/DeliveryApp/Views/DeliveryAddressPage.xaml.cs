@@ -5,14 +5,13 @@ using Xamarin.Forms.Xaml;
 
 namespace DeliveryApp.Forms.Views
 {
-    [MvxMasterDetailPagePresentation(MasterDetailPosition.Detail, WrapInNavigationPage = true, NoHistory = true)]
-    public partial class HomePage : MvxContentPage<HomeViewModel>
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    [MvxModalPresentation(WrapInNavigationPage = true)]
+    public partial class DeliveryAddressPage : MvxContentPage<DeliveryAddressViewModel>
     {
-        public HomePage()
+        public DeliveryAddressPage()
         {
             InitializeComponent();
         }
-
-    
     }
 }

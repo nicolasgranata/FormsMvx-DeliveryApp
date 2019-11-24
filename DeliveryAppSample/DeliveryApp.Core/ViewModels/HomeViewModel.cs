@@ -1,5 +1,7 @@
 ﻿using DeliveryApp.Core.Models;
 using DeliveryApp.Core.Services.Interfaces;
+using MvvmCross.Commands;
+using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using System.Threading.Tasks;
 
@@ -8,14 +10,17 @@ namespace DeliveryApp.Core.ViewModels
     public class HomeViewModel : BaseViewModel
     {
         private readonly ISuggestionService _suggestionService;
-        public HomeViewModel(ISuggestionService suggestionService)
+        private readonly IMvxNavigationService _navigationService;
+
+        public HomeViewModel(ISuggestionService suggestionService, IMvxNavigationService navigationService)
         {
             _suggestionService = suggestionService;
+            _navigationService = navigationService;
 
             Suggestions = new MvxObservableCollection<Suggestion>();
-        }
 
-        public MvxNotifyTask LoadPlanetsTask { get; private set; }
+            ShowDeliveryAddressCommand = new MvxAsyncCommand(async () => await _navigationService.Navigate<DeliveryAddressViewModel>());
+        }
 
         public override Task Initialize()
         {
@@ -23,6 +28,10 @@ namespace DeliveryApp.Core.ViewModels
 
             return Task.FromResult(0);
         }
+
+        public IMvxAsyncCommand ShowDeliveryAddressCommand { get; private set; }
+
+        public MvxNotifyTask LoadPlanetsTask { get; private set; }
 
         private MvxObservableCollection<Suggestion> _suggestions;
         public MvxObservableCollection<Suggestion> Suggestions
