@@ -24,14 +24,14 @@ namespace DeliveryApp.Core.ViewModels
 
         public override Task Initialize()
         {
-            LoadPlanetsTask = MvxNotifyTask.Create(LoadSuggestions);
+            LoadSuggestionsTask = MvxNotifyTask.Create(LoadSuggestions);
 
             return Task.FromResult(0);
         }
 
         public IMvxAsyncCommand ShowDeliveryAddressCommand { get; private set; }
 
-        public MvxNotifyTask LoadPlanetsTask { get; private set; }
+        public MvxNotifyTask LoadSuggestionsTask { get; private set; }
 
         private MvxObservableCollection<Suggestion> _suggestions;
         public MvxObservableCollection<Suggestion> Suggestions
