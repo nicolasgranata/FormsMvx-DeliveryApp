@@ -18,18 +18,48 @@
             Priority="0" />
     </views:MvxContentPage.ToolbarItems>
     <views:MvxContentPage.Content>
-        <StackLayout>
-            <Label Text="Dirección de entrega"
+        <Grid Padding="15,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   Text="Dirección de entrega"
                    TextColor="Black" 
                    FontSize="30"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center" />
-            <Label Text="Mi ubicación actual"
+                   FontAttributes="Bold"/>
+            <Image Grid.Column="0"
+                   Grid.Row="1"
+                   Source="location_icon.png">
+            </Image>
+            <Label Grid.Column="1"
+                   Grid.Row="1"
+                   Text="Mi ubicación actual"
                    TextColor="Black" 
                    FontSize="Medium" />
-            <Label Text="Buscar dirección"
+            <Image Grid.Column="0"
+                   Grid.Row="2"
+                   Source="search_icon.png">
+            </Image>
+            <Label Grid.Column="1"
+                   Grid.Row="2"
+                   Text="Buscar dirección"
                    TextColor="Black" 
                    FontSize="Medium" />
-        </StackLayout>
+            <Label Padding="0,30,0,0"
+                   Grid.Column="0"
+                   Grid.Row="3"
+                   Grid.ColumnSpan="2" 
+                   Text="Mis direcciones"
+                   TextColor="Black" 
+                   FontSize="20"
+                   FontAttributes="Bold" />
+        </Grid>
     </views:MvxContentPage.Content>
 </views:MvxContentPage>
