@@ -22,7 +22,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="25"/>
-                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>
@@ -52,14 +52,30 @@
                    Text="Buscar dirección"
                    TextColor="Black" 
                    FontSize="Medium" />
-            <Label Padding="0,30,0,0"
-                   Grid.Column="0"
-                   Grid.Row="3"
-                   Grid.ColumnSpan="2" 
-                   Text="Mis direcciones"
-                   TextColor="Black" 
-                   FontSize="20"
-                   FontAttributes="Bold" />
+            <CollectionView Grid.Column="0"
+                            Grid.Row="3"
+                            Grid.ColumnSpan="2"
+                    ItemsSource="{Binding AddressList}">
+                <CollectionView.Header>
+                    <StackLayout>
+                        <Label Padding="0,10,0,0"
+                           Text="Mis direcciones"
+                           TextColor="Black"
+                           FontSize="Large"
+                           FontAttributes="Bold" />
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="35">
+                            <Label 
+                                 Text="{Binding DisplayAddress}"
+                                 FontSize="Medium"
+                                 VerticalOptions="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </Grid>
     </views:MvxContentPage.Content>
 </views:MvxContentPage>
