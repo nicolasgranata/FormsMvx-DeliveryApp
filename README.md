@@ -1,8 +1,9 @@
 # FormsMvx-DeliveryApp
 Sample of Delivery App using Xamarin Forms with MvvmCross
 
-### Icons
+### Icons and images
 
-We use icons from: 
+We use icons and images from: 
 * https://iconos8.es/
 * https://material.io/resources/icons/
+* https://pixabay.com/
