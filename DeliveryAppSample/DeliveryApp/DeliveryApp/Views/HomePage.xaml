@@ -38,6 +38,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
+                <!--Buttons Menu Card-->
                 <PanCake:PancakeView Grid.Row="0" CornerRadius="20"
                                      Margin="5,10,5,0"
                                      BackgroundColor="White">
@@ -140,71 +141,39 @@
                     </StackLayout>
                 </PanCake:PancakeView>
 
+                <!--News Card -->
                 <PanCake:PancakeView Grid.Row="2" CornerRadius="20"  
-                                     Margin="5,5,5,0"
+                                     Margin="5,5,5,0" Padding="10"
                                      BackgroundColor="White">
-                    <Grid Padding="10,10" ColumnSpacing="30">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50*"/>
-                            <ColumnDefinition Width="50*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="100" />
-                        </Grid.RowDefinitions>
-
-                        <Button Grid.Row="0" Grid.Column="0" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Supermarkets" 
-                            TextColor="Black" FontSize="Medium" />
-
-                        <Button Grid.Row="0" Grid.Column="1" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Restaurants"
-                            TextColor="Black" FontSize="Medium" />
-
-                        <Grid Grid.Row="1" Padding="10,5" ColumnSpacing="40">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition Width="60"/>
-                                <ColumnDefinition Width="60"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="60" />
-                                <RowDefinition Height="60" />
-                            </Grid.RowDefinitions>
-
-                            <Button Grid.Row="0" Grid.Column="0" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Supermarkets" 
-                            TextColor="Black" FontSize="Medium" />
-
-                            <Button Grid.Row="0" Grid.Column="1" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Restaurants"
-                            TextColor="Black" FontSize="Medium" />
-
-                            <Button Grid.Row="0" Grid.Column="2" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Supermarkets" 
-                            TextColor="Black" FontSize="Medium" />
-
-                            <Button Grid.Row="0" Grid.Column="3" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Restaurants"
-                            TextColor="Black" FontSize="Medium" />
-
-                            <Button Grid.Row="1" Grid.Column="0" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Supermarkets" 
-                            TextColor="Black" FontSize="Medium" />
-
-                            <Button Grid.Row="1" Grid.Column="1" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Restaurants"
-                            TextColor="Black" FontSize="Medium" />
-
-                            <Button Grid.Row="1" Grid.Column="2" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Supermarkets" 
-                            TextColor="Black" FontSize="Medium" />
-
-                            <Button Grid.Row="1" Grid.Column="3" CornerRadius ="30" 
-                            BackgroundColor="#ebedf0" Text="Restaurants"
-                            TextColor="Black" FontSize="Medium" />
-                        </Grid>
-                    </Grid>
+                    <StackLayout>
+                        <Label Text="Novedades" 
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               FontSize="Large"/>
+                        <CollectionView mvx:Bi.nd="ItemsSource News"
+                                HeightRequest="150">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Horizontal" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout WidthRequest="240" Padding="10">
+                                        <Frame CornerRadius="10" 
+                                                   Padding="0"
+                                                   IsClippedToBounds="True"
+                                                   HeightRequest="100">
+                                            <Image mvx:Bi.nd="Source Image"
+                                                   Aspect="AspectFill"/>
+                                        </Frame>
+                                        <Label mvx:Bi.nd="Text Title" 
+                                               FontSize="Medium" 
+                                               FontAttributes="Bold"
+                                               TextColor="Black" />
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
                 </PanCake:PancakeView>
             </Grid>
         </ScrollView>

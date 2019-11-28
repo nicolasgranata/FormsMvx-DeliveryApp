@@ -1,8 +1,6 @@
 ﻿using DeliveryApp.Core.Models;
 using DeliveryApp.Core.Services.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DeliveryApp.Core.Services

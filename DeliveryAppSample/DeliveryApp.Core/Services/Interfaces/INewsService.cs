@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace DeliveryApp.Core.Services.Interfaces
 {
-    public interface IAddressService
+    public interface INewsService
     {
-        Task<IEnumerable<Address>> GetUserAddresses();
+        Task<IEnumerable<News>> GetNews();
     }
 }
